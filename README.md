@@ -13,3 +13,17 @@ Modern, lightweight web app to scan URLs and files using the VirusTotal API. Dar
 ## Requirements
 - VirusTotal API key (personal)
 
+## Download & Installation
+
+### Clone Repository / Download ZIP
+```bash
+git clone https://github.com/Dnapieraj/SecureCheck.git
+cd SecureCheck
+------------------------------------------------------
+Visit SecureCheck Repository
+Click the green <> Code button
+Select Download ZIP
+Extract and open index.html in your browser
+```
+
+
