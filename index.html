@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>SecureCheck - Zaawansowany Skaner Bezpieczeństwa</title>
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="main-wrapper">
+        <header class="app-header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>SecureCheck</h1>
+                    <p class="tagline">Profesjonalna Analiza Bezpieczeństwa</p>
+                </div>
+            </div>
+            <div class="status-badge">
+                <i class="fas fa-circle-check"></i> System Aktywny
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="tabs-wrapper">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('url')">
+                        <i class="fas fa-link"></i>
+                        <span>Skanuj URL</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('file')">
+                        <i class="fas fa-file-shield"></i>
+                        <span>Skanuj Plik</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-content active" id="urlTab">
+                <div class="scan-card">
+                    <div class="card-header">
+                        <i class="fas fa-globe"></i>
+                        <h2>Analiza Adresu URL</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="description">Wprowadź adres URL aby przeskanować go pod kątem zagrożeń</p>
+                        <div class="input-group">
+                            <i class="fas fa-link input-icon"></i>
+                            <input type="text" id="urlInput" placeholder="https://example.com">
+                        </div>
+                        <button class="scan-btn" onclick="scanURL()">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <span>Rozpocznij Skanowanie</span>
+                            <div class="btn-shine"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="fileTab">
+                <div class="scan-card">
+                    <div class="card-header">
+                        <i class="fas fa-folder-open"></i>
+                        <h2>Analiza Pliku</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="description">Prześlij plik do analizy (max 32MB)</p>
+                        <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                            <i class="fas fa-cloud-arrow-up"></i>
+                            <p>Kliknij lub przeciągnij plik tutaj</p>
+                            <span class="file-name" id="fileName">Nie wybrano pliku</span>
+                        </div>
+                        <input type="file" id="fileInput" style="display: none;" onchange="updateFileName(this)">
+                        <button class="scan-btn" onclick="scanFile()">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <span>Rozpocznij Skanowanie</span>
+                            <div class="btn-shine"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="result"></div>
+        </div>
+
+        <footer class="app-footer">
+            <p><i class="fas fa-lock"></i> Wszystkie skanowania są szyfrowane i bezpieczne</p>
+        </footer>
+    </div>
+
+    <div id="fullReportModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">
+                <i class="fas fa-xmark"></i>
+            </button>
+            <h2><i class="fas fa-file-lines"></i> Szczegółowy Raport</h2>
+            <div id="fullReportContent"></div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
